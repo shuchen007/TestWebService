@@ -1,0 +1,49 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from TraditionalSimplifiedWebService WSDL service -->
+
+  <service name="TraditionalSimplifiedWebServiceSoap" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://webxml.com.cn/"/>
+      <parameter name="wsdlServiceElement" value="TraditionalSimplifiedWebService"/>
+      <parameter name="schemaQualified" value="http://webxml.com.cn/"/>
+      <parameter name="wsdlServicePort" value="TraditionalSimplifiedWebServiceSoap"/>
+      <parameter name="className" value="services1.TraditionalSimplifiedWebServiceSoap_BindingImpl"/>
+      <parameter name="wsdlPortType" value="TraditionalSimplifiedWebServiceSoap"/>
+      <parameter name="typeMappingVersion" value="1.1"/>
+      <operation name="toSimplifiedChinese" qname="operNS:toSimplifiedChinese" xmlns:operNS="http://webxml.com.cn/" returnQName="retNS:toSimplifiedChineseResult" xmlns:retNS="http://webxml.com.cn/" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="http://webxml.com.cn/toSimplifiedChinese" >
+        <parameter qname="pns:sText" xmlns:pns="http://webxml.com.cn/" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="toTraditionalChinese" qname="operNS:toTraditionalChinese" xmlns:operNS="http://webxml.com.cn/" returnQName="retNS:toTraditionalChineseResult" xmlns:retNS="http://webxml.com.cn/" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="http://webxml.com.cn/toTraditionalChinese" >
+        <parameter qname="pns:sText" xmlns:pns="http://webxml.com.cn/" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="toTraditionalChinese toSimplifiedChinese"/>
+  </service>
+
+  <service name="TraditionalSimplifiedWebServiceSoap12" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://webxml.com.cn/"/>
+      <parameter name="wsdlServiceElement" value="TraditionalSimplifiedWebService"/>
+      <parameter name="schemaQualified" value="http://webxml.com.cn/"/>
+      <parameter name="wsdlServicePort" value="TraditionalSimplifiedWebServiceSoap12"/>
+      <parameter name="className" value="services1.TraditionalSimplifiedWebServiceSoap12Impl"/>
+      <parameter name="wsdlPortType" value="TraditionalSimplifiedWebServiceSoap"/>
+      <parameter name="typeMappingVersion" value="1.1"/>
+      <operation name="toSimplifiedChinese" qname="operNS:toSimplifiedChinese" xmlns:operNS="http://webxml.com.cn/" returnQName="retNS:toSimplifiedChineseResult" xmlns:retNS="http://webxml.com.cn/" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="http://webxml.com.cn/toSimplifiedChinese" >
+        <parameter qname="pns:sText" xmlns:pns="http://webxml.com.cn/" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="toTraditionalChinese" qname="operNS:toTraditionalChinese" xmlns:operNS="http://webxml.com.cn/" returnQName="retNS:toTraditionalChineseResult" xmlns:retNS="http://webxml.com.cn/" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="http://webxml.com.cn/toTraditionalChinese" >
+        <parameter qname="pns:sText" xmlns:pns="http://webxml.com.cn/" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="toTraditionalChinese toSimplifiedChinese"/>
+
+  </service>
+</deployment>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://example" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://example" xmlns:intf="http://example" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://example" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="x1" type="xsd:string"/>
+   <element name="testParams1Return" type="xsd:string"/>
+   <element name="x2" type="xsd:string"/>
+   <element name="x3" type="xsd:string"/>
+   <element name="testParams2Return" type="xsd:string"/>
+   <element name="testParams0Return" type="xsd:string"/>
+   <element name="x4" type="xsd:string"/>
+   <element name="x5" type="xsd:string"/>
+   <element name="x6" type="xsd:string"/>
+   <element name="testParams3Return" type="xsd:string"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="testParams2Request">
+
+      <wsdl:part element="impl:x2" name="x1"/>
+
+      <wsdl:part element="impl:x3" name="x2"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="testParams2Response">
+
+      <wsdl:part element="impl:testParams2Return" name="testParams2Return"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="testParams3Response">
+
+      <wsdl:part element="impl:testParams3Return" name="testParams3Return"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="testParams0Request">
+
+   </wsdl:message>
+
+   <wsdl:message name="testParams1Response">
+
+      <wsdl:part element="impl:testParams1Return" name="testParams1Return"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="testParams3Request">
+
+      <wsdl:part element="impl:x4" name="x1"/>
+
+      <wsdl:part element="impl:x5" name="x2"/>
+
+      <wsdl:part element="impl:x6" name="x3"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="testParams0Response">
+
+      <wsdl:part element="impl:testParams0Return" name="testParams0Return"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="testParams1Request">
+
+      <wsdl:part element="impl:x1" name="x1"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="HelloWorld">
+
+      <wsdl:operation name="testParams1" parameterOrder="x1">
+
+         <wsdl:input message="impl:testParams1Request" name="testParams1Request"/>
+
+         <wsdl:output message="impl:testParams1Response" name="testParams1Response"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testParams2" parameterOrder="x1 x2">
+
+         <wsdl:input message="impl:testParams2Request" name="testParams2Request"/>
+
+         <wsdl:output message="impl:testParams2Response" name="testParams2Response"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testParams0">
+
+         <wsdl:input message="impl:testParams0Request" name="testParams0Request"/>
+
+         <wsdl:output message="impl:testParams0Response" name="testParams0Response"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testParams3" parameterOrder="x1 x2 x3">
+
+         <wsdl:input message="impl:testParams3Request" name="testParams3Request"/>
+
+         <wsdl:output message="impl:testParams3Response" name="testParams3Response"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="HelloWorldSoapBinding" type="impl:HelloWorld">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="testParams1">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testParams1Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testParams1Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testParams2">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testParams2Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testParams2Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testParams0">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testParams0Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testParams0Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testParams3">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testParams3Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testParams3Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="HelloWorldService">
+
+      <wsdl:port binding="impl:HelloWorldSoapBinding" name="HelloWorld">
+
+         <wsdlsoap:address location="http://localhost:8080/test/services/HelloWorld"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
